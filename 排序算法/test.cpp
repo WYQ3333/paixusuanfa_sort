@@ -45,21 +45,21 @@ using namespace std;
 template<bool T, class T1, class T2>
 class IfThenElse;
 
-template<typename T1, typename T2>
+template<class T1, class T2>
 class IfThenElse<true, T1, T2>
 {
 public:
 	typedef T1 ResultT;
 };
 
-template<typename T1, typename T2>
+template<class T1, class T2>
 class IfThenElse<false, T1, T2>
 {
 public:
 	typedef T2 ResultT;
 };
 
-template<typename T1, typename T2>
+template<class T1, class T2>
 class ReturnValueTrait
 {
 public:
@@ -81,7 +81,7 @@ public:
 	typedef float ResultT;
 };
 
-template<typename t1, typename t2>
+template<class t1, class t2>
 typename ReturnValueTrait<t1, t2>::ResultT Add(t1 lhs, t2 rhs)
 {
 
@@ -90,7 +90,43 @@ typename ReturnValueTrait<t1, t2>::ResultT Add(t1 lhs, t2 rhs)
 
 
 int main(){
-	cout << Add(1,3.2) << endl;
+	cout << Add(1,2) << endl;
 	system("pause");
 	return 0;
 }
+
+
+//#include<iostream>
+//
+//using namespace std;
+//
+//template<bool T,class T1,class T2>
+//class Solution;
+//
+//template<class T1,class T2>
+//class Solution<true, T1, T2>{
+//public:
+//	typedef T1 resultT;
+//};
+//
+//template<class T1,class T2>
+//class Solution<false, T1, T2>{
+//public:
+//	typedef T2 resultT;
+//};
+//
+//template<typename T1, typename T2>
+//class Returnvalue{
+//public:
+//	typedef typename Solution<(sizeof(T1)>sizeof(T2)), T1, T2 > ::result resultT;
+//};
+//
+//
+//template<typename T1, typename T2>
+//typename Returnvalue<T1, T2>::resultT Add(T1 a,T1 b){
+//	return a + b;
+//}
+//
+//int main(){
+//	cout << Add(1, 2) << endl;
+//}
