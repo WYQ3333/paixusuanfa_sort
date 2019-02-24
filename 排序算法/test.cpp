@@ -157,6 +157,18 @@ public:
 	typedef typename solutoin<(sizeof(T1)>sizeof(T2)), T1, T2 >::ResultT ResultT;
 };
 
+template<>
+class Returnvalue<float, int>{
+public:
+	typedef float ResultT;
+};
+
+template<>
+class Returnvalue<int, float>{
+public:
+	typedef float ResultT;
+};
+
 template<class T1,class T2>
 typename Returnvalue<T1, T2>::ResultT Add(const T1& a, const T2& b){
 	return a + b;
